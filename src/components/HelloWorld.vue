@@ -53,8 +53,8 @@
                 <b-button variant="link" @click="addOwner"
                   >إضافة مالك جديد</b-button
                 >
-                <b-card-title class="text-left">جدوى تنظيمية</b-card-title>
-                <p class="text-left">
+                <b-card-title>جدوى تنظيمية</b-card-title>
+                <p>
                   تحدث بتفصيل على مدى استطاعة الملاك في إدارة هذا المشروع، وكيف
                   ستكون آلية الإدارة.
                 </p>
