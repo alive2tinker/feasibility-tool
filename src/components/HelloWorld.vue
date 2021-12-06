@@ -5,7 +5,7 @@
         <div class="accordion" role="tablist">
           <b-card no-body class="mb-1">
             <b-card-header header-tag="header" class="p-1" role="tab">
-              <b-button block v-b-toggle.accordion-1 variant="info"
+              <b-button block v-b-toggle.accordion-1 variant="primary"
                 >معطيات تنظيمية</b-button
               >
             </b-card-header>
@@ -13,6 +13,7 @@
               id="accordion-1"
               accordion="my-accordion"
               role="tabpanel"
+              visible
             >
               <b-card-body>
                 <b-label>اسم المشروع</b-label>
@@ -69,7 +70,7 @@
 
           <b-card no-body class="mb-1">
             <b-card-header header-tag="header" class="p-1" role="tab">
-              <b-button block v-b-toggle.accordion-2 variant="info"
+              <b-button block v-b-toggle.accordion-2 variant="primary"
                 >معطيات اقتصادية</b-button
               >
             </b-card-header>
@@ -77,7 +78,6 @@
               id="accordion-2"
               accordion="my-accordion"
               role="tabpanel"
-              visible
             >
               <b-card-body>
                 <b-card-title>خيارات محاسبية</b-card-title>
@@ -370,7 +370,7 @@
 
           <b-card no-body class="mb-1">
             <b-card-header header-tag="header" class="p-1" role="tab">
-              <b-button block v-b-toggle.accordion-3 variant="info"
+              <b-button block v-b-toggle.accordion-3 variant="primary"
                 >السوق المستهدف</b-button
               >
             </b-card-header>
@@ -466,7 +466,7 @@
           </b-card>
           <b-card no-body class="mb-1">
             <b-card-header header-tag="header" class="p-1" role="tab">
-              <b-button block v-b-toggle.accordion-4 variant="info"
+              <b-button block v-b-toggle.accordion-4 variant="primary"
                 >تحليل SWOT</b-button
               >
             </b-card-header>
@@ -546,8 +546,86 @@
               </div>
             </div>
           </b-card-body>
+          <b-card-body>
+            <b-card-title>تمويل المشروع</b-card-title>
+            <div class="row">
+              <div class="col-md-4">
+                <h4>
+                  {{ `${PRA} ${accountingOptions.currency}` }}<br /><small
+                    >معدل ربح سنوي</small
+                  >
+                </h4>
+              </div>
+              <div class="col-md-4">
+                <h4>
+                  {{ `${PRA} ${accountingOptions.currency}` }}<br /><small
+                    >معدل ربح سنوي</small
+                  >
+                </h4>
+              </div>
+              <div class="col-md-4">
+                <h4>
+                  {{ `${PRA} ${accountingOptions.currency}` }}<br /><small
+                    >معدل ربح سنوي</small
+                  >
+                </h4>
+              </div>
+            </div>
+          </b-card-body>
+          <b-card-body>
+            <b-card-title>الربحية السنوية</b-card-title>
+            <div class="row">
+              <div class="col-md-4">
+                <h4>
+                  {{ `${PRA} ${accountingOptions.currency}` }}<br /><small
+                    >معدل ربح سنوي</small
+                  >
+                </h4>
+              </div>
+              <div class="col-md-4">
+                <h4>
+                  {{ `${PRA} ${accountingOptions.currency}` }}<br /><small
+                    >معدل ربح سنوي</small
+                  >
+                </h4>
+              </div>
+              <div class="col-md-4">
+                <h4>
+                  {{ `${PRA} ${accountingOptions.currency}` }}<br /><small
+                    >معدل ربح سنوي</small
+                  >
+                </h4>
+              </div>
+            </div>
+          </b-card-body>
+          <b-card-body>
+            <b-card-title>الية التسعير بالتكلفة</b-card-title>
+            <div class="row">
+              <div class="col-md-4">
+                <h4>
+                  {{ `${PRA} ${accountingOptions.currency}` }}<br /><small
+                    >معدل ربح سنوي</small
+                  >
+                </h4>
+              </div>
+              <div class="col-md-4">
+                <h4>
+                  {{ `${PRA} ${accountingOptions.currency}` }}<br /><small
+                    >معدل ربح سنوي</small
+                  >
+                </h4>
+              </div>
+              <div class="col-md-4">
+                <h4>
+                  {{ `${PRA} ${accountingOptions.currency}` }}<br /><small
+                    >معدل ربح سنوي</small
+                  >
+                </h4>
+              </div>
+            </div>
+          </b-card-body>
         </b-card>
-        <button @click="generateReport" class="btn btn-primary">
+        <button @click="generateReport" class="btn btn-primary btn-block btn-lg my-4">
           حفظ الدراسة
         </button>
         <vue-html2pdf
@@ -660,10 +738,10 @@ export default {
       organizationalFeasibility: "",
       timestamp: "",
       accountingOptions: {
-        currency: "SAR",
+        currency: "ريال سعودي",
         vatPercentage: "0",
         feasibilityYears: "2",
-        decimals: "10",
+        decimals: "tens",
       },
       setupCosts: [],
       debts: [],
@@ -703,7 +781,7 @@ export default {
     },
     addSetupCost() {
       this.setupCosts.push({
-        الاسم: "",
+        name: "",
         cost: 0,
         lifeSpan: "",
         consumptionRatio: "",
@@ -768,8 +846,9 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
 .card {
-  text-align: left;
+  text-align: right;
 }
 </style>

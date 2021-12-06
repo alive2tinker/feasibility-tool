@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16.575" height="16.575" viewBox="0 0 16.575 16.575">
+  <g id="Group_16460" data-name="Group 16460" transform="translate(-611 -302)">
+    <g id="question-in-circular-button" transform="translate(611 302)">
+      <g id="Group_13058" data-name="Group 13058">
+        <path id="Path_17990" data-name="Path 17990" d="M8.288,0a8.288,8.288,0,1,0,8.288,8.288A8.287,8.287,0,0,0,8.288,0Zm0,15.28A6.993,6.993,0,1,1,15.28,8.288,6.993,6.993,0,0,1,8.288,15.28Z" fill="#e23636"/>
+      </g>
+    </g>
+    <g id="warning-sign" transform="translate(618.074 305.466)">
+      <path id="Path_17999" data-name="Path 17999" d="M185.354,7.256a.671.671,0,0,1-.669-.615l-.454-5.42a1.127,1.127,0,1,1,2.245,0l-.454,5.42A.671.671,0,0,1,185.354,7.256Z" transform="translate(-184.227)" fill="#e23636"/>
+      <path id="Path_18000" data-name="Path 18000" d="M206.184,410.908a.731.731,0,1,1-.731.731A.731.731,0,0,1,206.184,410.908Z" transform="translate(-205.058 -403.253)" fill="#e23636"/>
+    </g>
+  </g>
+</svg>
