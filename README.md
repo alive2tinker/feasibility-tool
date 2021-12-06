@@ -1,4 +1,4 @@
-# vuepdf
+# feasibility tool
 
 ## Project setup
 ```
