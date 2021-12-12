@@ -26,7 +26,18 @@
                   max-rows="6"
                 ></b-form-textarea>
                 <div class="d-flex mt-3 justify-content-between">
-                  <b-card-title class="text-left">قائمة الملاك</b-card-title>
+                  <div>
+                    <b-card-title class="text-left d-inline">قائمة الملاك</b-card-title>
+                    <svg class="help-icon" v-b-modal.ownersDescription xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+</svg>
+
+  <b-modal id="ownersDescription" title="تنويه عن الملاك" ok-only ok-title="حسنا">
+    <p class="my-4">جميع الأشخاص المساهمين في إنشاء هذا المشروع والمستحقين لنسبة منه سواء عن طريق الاستثمار أو المساهمة في المعرفة.
+* قم بإدخال الإسم الكامل للمالك.
+* أدخل نسبة حصة المالك في المشروع، 40 تعني 40% من ملكية هذا المشروع.</p>
+  </b-modal>
+                  </div>
                   <b-card-title>{{ owners.length }}</b-card-title>
                 </div>
                 <div class="row" v-for="(owner, index) in owners" :key="index">
@@ -54,11 +65,22 @@
                 <b-button variant="link" @click="addOwner"
                   >إضافة مالك جديد</b-button
                 >
-                <b-card-title>جدوى تنظيمية</b-card-title>
-                <p>
-                  تحدث بتفصيل على مدى استطاعة الملاك في إدارة هذا المشروع، وكيف
-                  ستكون آلية الإدارة.
-                </p>
+                <div class="d-flex">
+                  <b-card-title>جدوى تنظيمية</b-card-title>
+                <svg class="help-icon" v-b-modal.organizationalFeasibilityDescription xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+</svg>
+<b-modal id="organizationalFeasibilityDescription" title="تنويه عن جدوى تنظيمية" ok-only ok-title="حسنا">
+    <p class="my-4">
+      تحدث بتفصيل على مدى استطاعة الملاك في إدارة هذا المشروع، وكيف ستكون آلية الإدارة.
+      <ul>
+<li>* قم بذكر خبرات الملاك.</li>
+<li>* تحدث بتفصيل عن الهيكل التنظيمي في إدارة المشروع.</li>
+<li>تحدث بتفصيل عن سياسة العمل وآليات التطبيق.</li>
+      </ul>
+    </p>
+  </b-modal>
+                </div>
                 <b-form-textarea
                   id="textarea"
                   v-model="organizationalFeasibility"
@@ -81,7 +103,23 @@
               role="tabpanel"
             >
               <b-card-body>
-                <b-card-title>خيارات محاسبية</b-card-title>
+                <div class="d-flex">
+                  <b-card-title>خيارات محاسبية</b-card-title>
+                  <svg class="help-icon" v-b-modal.accountingOptionsDescription xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+</svg>
+<b-modal id="accountingOptionsDescription" title="تنويه عن جدوى تنظيمية" ok-only ok-title="حسنا">
+    <p class="my-4">
+      قم بإدخال رمز العملة وخانات الأعشار ونسبة ضريبة القيمة المضافة وفق النظام التجاري للبلد الممارس به النشاط التجاري.
+<ul>
+  <li>* قم باختيار رمز العملة الخاصة ببلدك.</li>
+<li>* عدد خانات الأعشار ونعني بها الخانات التي تلي الفاصلة.</li>
+<li>* ضريبة القيمة المضافة هي النسبة المحددة بالنظام التجاري في بلدك.</li>
+<li>* سنوات دراسة الجدوى وهي عدد السنوات التي بها يتم استخراج الأرقام والقوائم المالية.</li>
+</ul>
+    </p>
+  </b-modal>
+                </div>
                 <div class="row my-3">
                   <div class="col-md-6">
                     <label class="text-left">>العملة</label>
@@ -126,7 +164,23 @@
               </b-card-body>
               <b-card-body>
                 <div class="d-flex justify-content-between my-4">
-                  <b-card-title>تكاليف التاسيس والانشاء</b-card-title>
+                  <div class="d-flex">
+                    <b-card-title>تكاليف التاسيس والانشاء</b-card-title>
+                    <svg class="help-icon" v-b-modal.setupCostsDescription xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+</svg>
+<b-modal id="setupCostsDescription" title="تنويه عن تكاليف التاسيس والانشاء" ok-only ok-title="حسنا">
+    <p class="my-4">
+      هي المبالغ التي ستدفع مرة واحدة لتغطية تكاليف تأسيس المشروع وبداية عمله. تلك التكاليف تتضمن رسوم استخراج الرخصة التجارية وخلو المحل أو المكتب والمعدات والأثاث بالاضافة إلى تكاليف السيارات والادوات المكتبية وما إلى ذلك.
+  <ul>
+    <li>* قيمة التكلفة يجب أن تتضمن ضريبة القيمة المضافة إن وجدت.</li>
+<li>* العمر الافتراضي هو عدد السنوات التي عند إنتهائها سيتم بيع هذا الأصل بسعر يحدد بناء على نسبة الاستهلاك السنوي، ويتم شراء أصل مشابه بالقيمة المحددة أعلاه.</li>
+<li>* نسبة الاستهلاك السنوي هي النسبة المنخفضة من قيمة الأصل سنويا. مثال: إذا كان سعر السيارة 10,000 {{accountingOptions.currency}} وكانت نسبة الاستهلاك 10 سنويا فبعد السنة الأولى ستنخفض قيمة السيارة 1,000 {{accountingOptions.currency}} وبعد الثانية ستنخفض 900 {{accountingOptions.currency}} وبعد الثالثة ستنخفض 810 {{accountingOptions.currency}}، وهكذا. دع خانة نسبة الاستهلاك فارغة إذا كان الأصل لا يستهلك.</li>
+   
+  </ul>
+ </p>
+  </b-modal>
+                  </div>
                   <p>
                     {{ `${setupCostsComputed} ${accountingOptions.currency}` }}
                   </p>
@@ -184,7 +238,19 @@
               </b-card-body>
               <b-card-body>
                 <div class="d-flex justify-content-between my-4">
-                  <b-card-title>المديونيات</b-card-title>
+                  <div class="d-flex">
+                    <b-card-title>المديونيات</b-card-title>
+                    <svg class="help-icon" v-b-modal.debtsDescription xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+</svg>
+<b-modal id="debtsDescription" title="تنويه عن المديونيات" ok-only ok-title="حسنا">
+    <p class="my-4">
+      كيف ستمول تكاليف تأسيس وإنشاء المشروع؟ في هذه الخطوة عليك إدخال بيانات المديونيات التي ستغطي تكاليف هذا المشروع. ليس بالضرورة يتوجب أن تتساوى قيمة القرض مع تكاليف إنشاء المشروع.
+* المديونيات تتضمن جميع الاصول سواء كانت نقدية أو أخرى كالسيارات وغيرها.
+* في خانة الفائدة السنوية، استخدام الرقم 6 يعني أن الفائدة 6%.
+ </p>
+  </b-modal>
+                  </div>
                   <p>{{ `${debtsComputed} ${accountingOptions.currency}` }}</p>
                 </div>
                 <div
@@ -235,7 +301,19 @@
               </b-card-body>
               <b-card-body>
                 <div class="d-flex justify-content-between">
-                  <b-card-title>الموظفين</b-card-title>
+                  <div class="d-flex">
+                    <b-card-title>الموظفين</b-card-title>
+                    <svg class="help-icon" v-b-modal.employeesDescription xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+</svg>
+<b-modal id="employeesDescription" title="تنويه عن الموظفين" ok-only ok-title="حسنا">
+    <p class="my-4">
+      جميع الأشخاص المساهمين في عمليات هذا المشروع والمستحقين لراتب شهري.
+* قيم بإدخال عدد المطلوبين في المسمى الوظيفي والراتب الشهري لكل موظف.
+* إذا كنت تستحق راتب في هذا المشروع فأدخل مسماك الوظيفي وراتبك الشهري أيضا.
+ </p>
+  </b-modal>
+                  </div>
                   <p>{{ `${salaries} ${accountingOptions.currency}` }}</p>
                 </div>
                 <div
@@ -273,7 +351,21 @@
               </b-card-body>
               <b-card-body>
                 <div class="d-flex justify-content-between">
-                  <b-card-title>التكاليف الشهرية الثابتة </b-card-title>
+                  <div class="d-flex">
+              <b-card-title>التكاليف الشهرية الثابتة</b-card-title>
+              <svg class="help-icon" v-b-modal.fixedMonthlyCostsDescription xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+</svg>
+<b-modal id="fixedMonthlyCostsDescription" title="تنويه عن التكاليف الشهرية الثابتة" ok-only ok-title="حسنا">
+    <p class="my-4">
+      هي التكاليف التي تلتزم في دفعها شهريا مثل الإيجارات وتكاليف المواد الاستهلاكية والتسويق وما إلى ذلك. لا تقم بإضافة أقساط المديونيات، فهي ستضاف من تلقاء نفسها إذا كانت المديونية مسجلة في قسمها المخصص.
+* يتوجب إدخال قيمة التكلفة مع ضريبة القيمة المضافة إن كانت تخضع لها.
+* الإيجارات وبعض السلع الأخرى لا تخضع لضريبة القيمة المضافة.
+* لذلك، قم بتحديد ما إذا كانت كل تكلفة تخضع لضريبة القيمة المضافة.
+
+      </p>
+  </b-modal>
+            </div>
                   <p>
                     {{
                       `${monthlyCostsComputed} ${accountingOptions.currency}`
@@ -318,7 +410,23 @@
               </b-card-body>
               <b-card-body>
                 <div class="d-flex justify-content-between">
-                  <b-card-title>المنتجات وإيرادها الشهري</b-card-title>
+                  <div class="d-flex">
+              <b-card-title>المنتجات وايرادها الشهري</b-card-title>
+              <svg class="help-icon" v-b-modal.productsDescription xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+</svg>
+<b-modal id="productsDescription" title="تنويه عن المنتجات وايرادها الشهري" ok-only ok-title="حسنا">
+    <p class="my-4">
+      جميع المنتجات أو الخدمات التي يوفرها نشاطك التجاري، بالإضافة إلى جميع التفاصيل الخاصة بها حسب معطيات المشروع من تكاليف التأسيس والتكاليف الشهرية الثابتة.
+* تكلفة المواد الأولية هي تكلفتها في قطعة واحدة من المنتج، قد لا تكون تكلفة مواد تصنيع بل تكلفة منتج مضاف إليها تكلفة الاستيراد، ويتوجب بها إضافة ضريبة القيمة المضافة لها إن وجدت.
+* تكلفة المواد الأولية يتوجب وضعها 0 إن تم احتسابها مسبقا في التكاليف الشهرية الثابتة.
+* قدرة البيع الشهرية تعني عدد ما تستطيع بيعه من هذا المنتج شهريا بناء على المعدات المتوفرة وتكاليف التسويق المعتبرة.
+* قدرة الانتاج الشهرية تعني عدد ما تستطيع إنتاجه من هذا المنتج شهريا بناء على المعدات المتوفرة والعمالة المتوفرة.
+* سعر المنتج يجب أن لا يتضمن ضريبة القيمة المضافة.
+* معدل نسبة الزيادة السنوية تعني الزيادة المتوقعة في مبيعات المنتج سنويا. يجب أن لا تبالغ في هذه النسبة حيث أنها معدل وليس نسبة ثابتة. قم بإدخال 10 لاعتبار النسبة 10%.
+    </p>
+  </b-modal>
+            </div>
                   <p>
                     {{
                       `${monthlyProductsComputed} ${accountingOptions.currency}`
@@ -393,6 +501,24 @@
               role="tabpanel"
             >
               <b-card-body>
+                <div class="d-flex">
+              <b-card-title>معلومات حول السوق</b-card-title>
+              <svg class="help-icon" v-b-modal.marketDescription xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+</svg>
+<b-modal id="marketDescription" title="تنويه عن معلومات السوق" ok-only ok-title="حسنا">
+    <p class="my-4">
+    معلومات السوق مهمة جدا في هذه الدراسة، وتبين مدى اطلاعك قبل الإستثمار. تقل المخاطرة في الاستثمار كلما فهمت تفاصيل السوق أكثر. في هذا القسم حاول قدر المستطاع اقناع القارئ في جدوى السوق ومدى ملائمته لإستثمارك.
+* إسم السوق نعني بها نوعه أو أي وصف قصير آخر. مثال على ذلك: سوق الهواتف الذكية.
+* حجم التداول السنوي أو قيمة الصفقات السنوية أو حجم السوق، ونعني بها قيمة إجمالي ما يدفعه الزبائن أو العملاء أو المستهلكين في هذا السوق إلى المشاريع التي تخدمه. في هذه الخانة لا تقم بإدخال العملة، فقط قم بإدخال الرقم، مثال 1000000 تعني مليون.
+* في خانة النبذة عليك التحدث عن السوق بشكل عام. يمكنك التحدث عن جميع التفاصيل إن شئت. فكلما زادت التفاصيل زادت جدوى دراستك.
+* في خانة المنتجات أو الخدمات عليك التحدث عن المزايا والعيوب ومدى أهميتها للمستهلك أو العميل أو الزبون.
+* الفئة المستهدفة هي نوعية العملاء أو الزبائن أو المستهلكين الذين يستهدفهم نشاطك. قد ترى بأن نشاطك يخدم الجميع، ولكن الفئة المستهدفة هي الفئة الأكثر حرصا على استخدام خدمتك أو منتجك. مثال: محطة غسيل سيارات تخدم الجميع ولكن فئة الشباب المحبة للسيارات تعتبر فئة مستهدفة. في هذه الخانة تحدث عن تلك الفئة ومن الممكن أن يكون لديك أكثر من فئة، أذكر تفاصيل هذه الفئة ومدى احتياجها لمنتجك أو خدماتك.
+* تحدث عن خططك التسويقية وآليات عملها للوصول إلى الفئة المستهدفة بأسرع شكل ممكن.
+* الموردون هم الجهات أو القطاعات التي تخدم هذا السوق. مثال: في سوق الوجبات السريعة يعتبر تجار الخضروات موردون لهذا السوق. تحدث عن جميع الموردين والجهات الأخرى التي يعتمد عليها هذا السوق.  
+    </p>
+  </b-modal>
+            </div>
                 <div class="form-group">
                   <b-form-input
                     v-model="marketInfo.name"
@@ -448,7 +574,19 @@
                 </div>
               </b-card-body>
               <b-card-body>
-                <b-card-title>المنافسة</b-card-title>
+                <div class="d-flex">
+                  <b-card-title>المنافسة</b-card-title>
+                  <svg class="help-icon" v-b-modal.competitionDescription xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+</svg>
+<b-modal id="competitionDescription" title="تنويه عن المنافسة" ok-only ok-title="حسنا">
+    <p class="my-4">
+      يجب أن لا يستهان بالمنافسين في هذا السوق. في هذا القسم تحدث عن المنافسين وحلل المنافسة معهم بشكل تفصيلي.
+* في تفاصيل المنافسة عليك ذكر نوعية المنافسة والأحداث المتعلقة بالمنافسة في هذا السوق. عليك أيضا بذكر المتحكمين بهذا السوق والتابعين المنتفعين وغير المنتفعين.
+* في قائمة المنافسين، لكل منافس أذكر أسمه التجاري والنسبة التقديرية لاستحواذه في هذا السوق. من الممكن أن تكون هذه القائمة محصورة على المنافسين في نفس المنطقة فقط إن كان السوق كبير جدا.
+    </p>
+  </b-modal>
+                </div>
                 <b-form-textarea
                   rows="3"
                   max-rows="6"
@@ -498,7 +636,16 @@
               role="tabpanel"
             >
               <b-card-body>
-                <label>نقاط القوة</label>
+                <div class="d-flex">
+                  <b-card-title>نقاط القوة</b-card-title>
+                  <svg class="help-icon" v-b-modal.strengthPointsDescription xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+</svg>
+<b-modal id="strengthPointsDescription" title="تنويه عن نقاط القوة" ok-only ok-title="حسنا">
+    <p class="my-4">
+      أذكر جميع الأمور التي تميز نشاطك عن بقية المنافسين، أو عن بقية الأسواق. عليك بذكر تفاصيل جميع العلل التي جعلتك مؤمنا بأن هذا النشاط مجدي إلى حد ما. </p>
+  </b-modal>
+                </div>
                 <b-form-textarea
                   id="textarea"
                   v-model="strengthPoints"
@@ -507,7 +654,17 @@
                 ></b-form-textarea>
               </b-card-body>
               <b-card-body>
-                <label>نقاط الضعف</label>
+                <div class="d-flex">
+                  <b-card-title>نقاط الضعف</b-card-title>
+                <svg class="help-icon" v-b-modal.weaknessPointsDescription xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+</svg>
+<b-modal id="weaknessPointsDescription" title="تنويه عن نقاط القوة" ok-only ok-title="حسنا">
+    <p class="my-4">
+      تحدث عن تفاصيل جميع الأمور التي ترى نشاطك ضعيف بها. على سبيل المثال، ضعفك باللغة الإنجليزية ونشاطك يتطلب اجتماعات مع مدراء في الخارج.
+      </p>
+  </b-modal>
+                </div>
                 <b-form-textarea
                   id="textarea"
                   v-model="weaknessPoints"
@@ -516,7 +673,17 @@
                 ></b-form-textarea>
               </b-card-body>
               <b-card-body>
-                <label>الفرص المتاحة</label>
+                <div class="d-flex">
+                  <b-card-title>الفرص المتاحة</b-card-title>
+                <svg class="help-icon" v-b-modal.opportunitiesDescription xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+</svg>
+<b-modal id="opportunitiesDescription" title="تنويه عن نقاط القوة" ok-only ok-title="حسنا">
+    <p class="my-4">
+      أذكر تفاصيل الفرص التي تراها أمام مشروعك ويتوجب عليك استغلالها. قد تكون الفرصة لك وحدك بسبب الخبرات التي لديك، عليك بذكر ذلك أيضا.
+      </p>
+  </b-modal>
+                </div>
                 <b-form-textarea
                   id="textarea"
                   v-model="opportunities"
@@ -525,7 +692,17 @@
                 ></b-form-textarea>
               </b-card-body>
               <b-card-body>
-                <label>التهديدات المتوقعة</label>
+                <div class="d-flex">
+                  <b-card-title>التهديدات المتوقعة</b-card-title>
+                <svg class="help-icon" v-b-modal.threatsDescription xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+  <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd" />
+</svg>
+<b-modal id="threatsDescription" title="تنويه عن نقاط القوة" ok-only ok-title="حسنا">
+    <p class="my-4">
+      أذكر تفاصيل الفرص التي تراها أمام مشروعك ويتوجب عليك استغلالها. قد تكون الفرصة لك وحدك بسبب الخبرات التي لديك، عليك بذكر ذلك أيضا.
+      </p>
+  </b-modal>
+                </div>
                 <b-form-textarea
                   id="textarea"
                   v-model="threats"
@@ -1435,6 +1612,80 @@
                 </div>
               </div>
               <div class="page-break"></div>
+              <div class="pt-4">
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex">
+              <b-card-title>التكاليف الشهرية الثابتة</b-card-title>
+            </div>
+                  <p>
+                    {{
+                      `${monthlyCostsComputed} ${accountingOptions.currency}`
+                    }}
+                  </p>
+                </div>
+                <table class="table text-right">
+                  <thead>
+                    <tr>
+                      <th>اسم التكلفة</th>
+                      <th>القيمة</th>
+                      <th>خاضعة لضريبة القيمة المضافة</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(monthlyCost, index) in monthlyCosts"
+                  :key="index">
+                      <td>{{ monthlyCost.name }}</td>
+                      <td>{{ monthlyCost.cost }}</td>
+                      <td>{{ monthlyCost.vatInclusive ? "نعم":"لا"}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="page-break"></div>
+              <div class="pt-4">
+                <div class="d-flex justify-content-between">
+                  <div class="d-flex">
+              <b-card-title>المنتجات وايرادها الشهري</b-card-title>
+            </div>
+                  <p>
+                    {{
+                      `${monthlyProductsComputed} ${accountingOptions.currency}`
+                    }}
+                  </p>
+                </div>
+                <table class="table w-100">
+              <thead>
+                <th>
+                  <p>المنتج</p>
+                  <p>قدرة بيع</p>
+                  <p>قدرة انتاج</p>
+                </th>
+                <th>
+                  <p>سعر الوحدة</p>
+                  <p>تكلفة الوحدة</p>
+                  <p>زيادة بيع سنوية</p>
+                </th>
+              </thead>
+              <tbody>
+                <tr v-for="(product, index) in products" :key="index">
+                  <td>
+                    <p>{{ product.name }}</p>
+                    <p>{{ product.sellingCap }}</p>
+                    <p>{{ product.productionCap }}</p>
+                  </td>
+                  <td>
+                    <p>{{ product.price }}</p>
+                    <p>{{ product.rawCost }}</p>
+                    <p>{{ product.annualSalePercentage }}</p>
+                  </td>
+                </tr>
+                <h5 v-if="products.length === 0" class="mt-4">
+                  لايوجد بيانات حتى الان
+                </h5>
+              </tbody>
+            </table>
+              </div>
+              <div class="page-break"></div>
               <div class="py-4">
                 <h1 class="text-right">تنويه</h1>
                 <p class="text-right">
@@ -1462,7 +1713,7 @@ export default {
     msg: String,
   },
   components: {
-    VueHtml2pdf,
+    VueHtml2pdf
   },
   computed: {
     totalSales() {
@@ -1718,5 +1969,11 @@ export default {
   position: relative;
   top: 5vh;
   background-color: rgba(255, 255, 255, 0.589);
+}
+.help-icon{
+  color: #165163;
+  width:25px;
+  display: inline;
+  margin-right:7px;
 }
 </style>

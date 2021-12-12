@@ -30,89 +30,55 @@
   <div class="dashboard-container">
     <div class="wrapper">
       <header class="header header-4">
-        <nav class="navbar navbar-expand-lg d-flex navbar-light p-0" style="position:fixed; z-index:99999999; width:100%; background-color: white;">
+        <nav class="navbar navbar-expand-lg navbar-light p-0 w-100" style="position: fixed; top: 0; z-index: 99999999999; background-color: white;">
           <div class="container">
-            <div class="row">
-              <div class="logo-and-button col-8 col-lg-1 order-0 d-flex align-items-center pr-0">
-                <a href="">
-                  <img class="logo" src="images/monshaat_new_logo.png" alt="اللوجو">
-                </a>
-                <button class="navbar-toggler ml-3 ml-lg-5" type="button" data-toggle="collapse"
-                  data-target="#navMenu-2" aria-controls="navMenu-2" aria-expanded="false"
-                  aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
+              <div class="row">
+                  <div class="logo-and-button col-8 col-lg-1 order-0 d-flex align-items-center pr-0">
+                      <a href="">
+                          <img class="logo" src="images/monshaat_new_logo.png" alt="اللوجو">
+                      </a>
+                      <button class="navbar-toggler ml-3 ml-lg-5" type="button" data-toggle="collapse" data-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                          <span class="navbar-toggler-icon"></span>
+                      </button>
+                  </div>
+
+                  <!--  Main Menu-->
+                  <div class="collapse navbar-collapse col-lg-9 order-2 order-lg-1 pl-lg-5 " id="navMenu">
+                      <ul class="navbar-nav mr-auto pt-5 pt-lg-0">
+                          <li class="nav-item active">
+                              <a class="nav-link" href="#">عن منشآت</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#">خدمات منشآت</a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="#">المركز الإعلامي</a>
+                          </li>
+                          <li class="nav-item mr-0">
+                              <a class="nav-link" href="#">تعريف المنشآت</a>
+                          </li>
+                      </ul>
+                  </div>
+                  <!--  -->
+                  <div class="search-profile col-4 col-lg-2 order-1 order-lg-2 d-flex justify-content-end align-items-center">
+                      <ul class="d-flex align-items-center">
+                          <li class="mr-4 ">
+                              <a class="nav-link hvr-pulse black-color p-0" href="#">
+
+                                  <span class="icon-user h4 mb-0"></span>
+                              </a>
+                          </li>
+                          <li class="d-inline-block oneIcon">
+                              <a href="#" class="hvr-pulse black-color">
+                                  <span class="icon-one-icon"></span>
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+
               </div>
-
-              <!--  Main Menu-->
-              <div class="collapse navbar-collapse col-lg-9 order-2 order-lg-1 pl-lg-5" id="navMenu-2">
-                <ul class="navbar-nav mr-auto pt-5 pt-lg-0">
-                  <li class="nav-item active">
-                    <a class="nav-link " href="#">الخدمات الشخصية</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">تواصل معنا</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">منشأت</a>
-                  </li>
-                </ul>
-              </div>
-              <!--  -->
-              <div
-                class="search-profile col-4 col-lg-2 order-1 order-lg-2 d-flex justify-content-end align-items-center">
-                <ul class="d-flex align-items-center">
-
-                  <li class="icon-circle  dropdown mr-2 mr-md-4  searchMenu nav-link black-color p-0">
-                    <a class="brand-color" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                      aria-haspopup="true" aria-expanded="false">
-                      <span class="icon-icons-search brand-color h4 mb-0 hvr-pulse"></span>
-                    </a>
-                    <div class="dropdown-menu animate slideIn dropdown-menu-left p-2" aria-labelledby="navbarDropdown">
-                      <form action="">
-                        <div class="input-group">
-                          <input type="text" class="form-control" placeholder="البحث" aria-label="search"
-                            aria-describedby="button-addon2">
-                          <div class="input-group-append">
-                            <button class="btn btn-primary px-4 py-2" type="submit" id="button-addon2">
-                              <span class="icon-icons-search"></span>
-                            </button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </li>
-                  <li class="notification-menu mr-2 mr-md-4 ">
-                    <a class="nav-link icon-circle " href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
-                      aria-expanded="false">
-                      <div class="notification ">
-                        <span class="icon-notifications-bell-button brand-color h4 mb-0 hvr-pulse"></span>
-                        <span class="notification-num">2</span>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="dropdown mr-2 mr-md-4 profile-menu-circle">
-                    <a class="nav-link d-flex brand-color" href="#" id="navbarDropdown" role="button"
-                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                      <span class="icon-user"></span>
-                    </a>
-                    <div class="dropdown-menu animated faster zoomIn dropdown-menu-left text-left"
-                      aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="/user/logout">تسجيل الخروج</a>
-                    </div>
-                  </li>
-                  <li class="d-inline-block oneIcon">
-                    <a href="" class="hvr-pulse brand-color">
-                      <span class="icon-one-icon"></span>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-
-            </div>
-
           </div>
-        </nav>
+      </nav>
       </header>
       <div class="jumbotron text-white" style="background: rgb(0, 114, 151); margin-top:88px">
         <h1 class="display-4 text-center">اداة محاسبية لدراسة الجدوى</h1>
