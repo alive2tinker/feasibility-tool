@@ -1833,75 +1833,37 @@ export default {
   },
   data() {
     return {
-      projectName: "AZOM Phone",
-      projectDescription: "new android mobile phone",
-      owners: [{name:"Ibrahim", percentage:85}, {name:"Saleh", percentage: 15}],
-      organizationalFeasibility: "we are working on it",
+      projectName: "",
+      projectDescription: "",
+      owners: [],
+      organizationalFeasibility: "",
       timestamp: "",
       accountingOptions: {
-        currency: "ريال سعودي",
-        vatPercentage: "0",
-        feasibilityYears: "1",
-        decimals: "tens",
+        currency: "",
+        vatPercentage: "",
+        feasibilityYears: "",
+        decimals: "",
       },
-      setupCosts: [
-        {
-        name: "website",
-        cost: 35000,
-        lifeSpan: "",
-        consumptionRatio: "",
-        hasVat: 1,
-      },
-      {
-        name: "chip",
-        cost: 15000000,
-        lifeSpan: "2",
-        consumptionRatio: "1",
-        hasVat: 1,
-      }
-      ],
-      debts: [
-        { loaner: "alrajhi bank", cost: 1000000, APR: 2, loanYears: 25 },
-        { loaner: "soft bank", cost: 500000, APR: 2, loanYears: 5 },
-      ],
-      employees: [
-        { jobTitle: "software engineer", salary: 13695, numberOfEmployees: 3 },
-        { jobTitle: "hardware engineer", salary: 60548, numberOfEmployees: 2 },
-        { jobTitle: "secretary", salary: 7500, numberOfEmployees: 1 },
-      ],
-      strengthPoints: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      weaknessPoints: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      opportunities: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-      threats: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      setupCosts: [],
+      debts: [],
+      employees: [],
+      strengthPoints: "",
+      weaknessPoints: "",
+      opportunities: "",
+      threats: "",
       marketInfo: {
-        name: "Mobile Phones",
-        tradingVolume: 1000000000,
-        description: "mobile phone market where the likes of the iphone and android are competing.",
-        briefOfYourProducts: "we only have a single product that is a mobile phone created with the latest technologies in perspective.",
-        briefOfTargetAudience: "generation z and melinnials.",
-        briefOfVendors: "qualcomm for processors, panasonic for batteries, and LG for gorilla glass",
-        briefOfYourMarketingPlans: "no plans just yet",
-        competitionAnalysis: "Apple and samsung are our biggest competitors",
-        competitors: [
-          { name: "Apple", share: 70 },
-          { name: "Samsung", share: 25},
-          { name: "LG", share: 5}
-        ],
-      },
-      monthlyCosts: [
-        { name: "loan payment", cost: 5000, vatInclusive: 1 },
-        { name: "salary", cost: 169681, vatInclusive: 0 }
-      ],
-      products: [
-        {
-        name: "Azom Phone",
-        rawCost: 300,
-        sellingCap: 1000,
-        price: 800,
-        productionCap: 2500,
-        annualSalePercentage: 300,
-      }
-      ],
+        name: "",
+        tradingVolume: 1,
+        description: "",
+        briefOfYourProducts: "",
+        briefOfTargetAudience: "",
+        briefOfVendors: "",
+        briefOfYourMarketingPlans: "",
+        competitionAnalysis: "",
+        competitors: []
+        },
+      monthlyCosts: [],
+      products: [],
     };
   },
   mounted() {
