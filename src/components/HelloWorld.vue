@@ -122,14 +122,13 @@
                 </div>
                 <div class="row my-3">
                   <div class="col-md-6">
-                    <label class="text-left">>العملة</label>
+                    <label class="text-left">العملة</label>
                     <b-form-select v-model="accountingOptions.currency">
                       <option selected value="ريال سعودي">ريال سعودي</option>
                     </b-form-select>
                   </div>
                   <div class="col-md-6">
-                    <label class="text-left"> >النسبة المئوية</label>
-                    >
+                    <label class="text-left">النسبة المئوية</label>
                     <b-form-select v-model="accountingOptions.decimals">
                       <option value="tens">الاعشار</option>
                     </b-form-select>
@@ -137,8 +136,7 @@
                 </div>
                 <div class="row">
                   <div class="col-md-6">
-                    <label class="text-left"> >سنوات دراسة الجدوى</label>
-                    >
+                    <label class="text-left">سنوات دراسة الجدوى</label>
                     <b-form-select v-model="accountingOptions.feasibilityYears">
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -148,8 +146,7 @@
                     </b-form-select>
                   </div>
                   <div class="col-md-6">
-                    <label class="text-left"> >نسبة الضريبة المضافة</label>
-                    >
+                    <label class="text-left">نسبة الضريبة المضافة</label>
                     <b-form-select v-model="accountingOptions.vatPercentage">
                       <option
                         v-for="percentage in Array(21).keys()"
@@ -767,6 +764,9 @@
               </div>
             </div>
           </b-card-body>
+          <div style="width:60%; margin-right:auto; margin-left:auto;">
+            <chart :key="chartData" v-if="showChart" :data="chartData"/>
+          </div>
           <b-card-body>
             <b-card-title>الربحية السنوية</b-card-title>
             <table class="table w-100">
@@ -1707,15 +1707,29 @@
 
 <script>
 import VueHtml2pdf from "vue-html2pdf";
+import Chart from './Chart.vue'
 export default {
   name: "HelloWorld",
   props: {
     msg: String,
   },
   components: {
-    VueHtml2pdf
+    VueHtml2pdf,
+    Chart
   },
   computed: {
+    chartData(){
+      return {
+          labels: ["راس مال المشروع","المديونية","تمويل خاص"],
+          datasets: [
+            {
+              label: 'راس مال المشروع',
+              backgroundColor: ['#006400','#ff0000','#00ff00'],
+              data: [this.capital, this.debtsFinanced, this.personalFinance]
+            }
+          ]
+        }
+    },
     totalSales() {
       return this.products.reduce((a, b) => {
         return a + (b.price - b.rawCost);
@@ -1800,6 +1814,8 @@ export default {
     },
     monthlyProductsComputed: {
       get() {
+        const sum = (a, b) => parseInt(a) + parseInt(b.cost);
+        let value = this.products.reduce(sum, 0)
         return 0;
       },
     },
@@ -1811,41 +1827,81 @@ export default {
     formHasMissingInput() {
       return false;
     },
+    showChart(){
+      return this.capital > 0 || this.personalFinance > 0;
+    }
   },
   data() {
     return {
-      projectName: "",
-      projectDescription: "",
-      owners: [],
-      organizationalFeasibility: "",
+      projectName: "AZOM Phone",
+      projectDescription: "new android mobile phone",
+      owners: [{name:"Ibrahim", percentage:85}, {name:"Saleh", percentage: 15}],
+      organizationalFeasibility: "we are working on it",
       timestamp: "",
       accountingOptions: {
         currency: "ريال سعودي",
         vatPercentage: "0",
-        feasibilityYears: "2",
+        feasibilityYears: "1",
         decimals: "tens",
       },
-      setupCosts: [],
-      debts: [],
-      employees: [],
-      text: "|",
-      strengthPoints: "",
-      weaknessPoints: "",
-      opportunities: "",
-      threats: "",
-      marketInfo: {
-        name: "",
-        tradingVolume: 1,
-        description: "",
-        briefOfYourProducts: "",
-        briefOfTargetAudience: "",
-        briefOfVendors: "",
-        briefOfYourMarketingPlans: "",
-        competitionAnalysis: "",
-        competitors: [],
+      setupCosts: [
+        {
+        name: "website",
+        cost: 35000,
+        lifeSpan: "",
+        consumptionRatio: "",
+        hasVat: 1,
       },
-      monthlyCosts: [],
-      products: [],
+      {
+        name: "chip",
+        cost: 15000000,
+        lifeSpan: "2",
+        consumptionRatio: "1",
+        hasVat: 1,
+      }
+      ],
+      debts: [
+        { loaner: "alrajhi bank", cost: 1000000, APR: 2, loanYears: 25 },
+        { loaner: "soft bank", cost: 500000, APR: 2, loanYears: 5 },
+      ],
+      employees: [
+        { jobTitle: "software engineer", salary: 13695, numberOfEmployees: 3 },
+        { jobTitle: "hardware engineer", salary: 60548, numberOfEmployees: 2 },
+        { jobTitle: "secretary", salary: 7500, numberOfEmployees: 1 },
+      ],
+      strengthPoints: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      weaknessPoints: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      opportunities: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      threats: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      marketInfo: {
+        name: "Mobile Phones",
+        tradingVolume: 1000000000,
+        description: "mobile phone market where the likes of the iphone and android are competing.",
+        briefOfYourProducts: "we only have a single product that is a mobile phone created with the latest technologies in perspective.",
+        briefOfTargetAudience: "generation z and melinnials.",
+        briefOfVendors: "qualcomm for processors, panasonic for batteries, and LG for gorilla glass",
+        briefOfYourMarketingPlans: "no plans just yet",
+        competitionAnalysis: "Apple and samsung are our biggest competitors",
+        competitors: [
+          { name: "Apple", share: 70 },
+          { name: "Samsung", share: 25},
+          { name: "LG", share: 5}
+        ],
+      },
+      monthlyCosts: [
+        { name: "loan payment", cost: 5000, vatInclusive: 1 },
+        { name: "salary", cost: 169681, vatInclusive: 0 }
+      ],
+      products: [
+        {
+        name: "Azom Phone",
+        rawCost: 300,
+        sellingCap: 1000,
+        price: 800,
+        productionCap: 2500,
+        annualSalePercentage: 300,
+      }
+      ],
     };
   },
   mounted() {
