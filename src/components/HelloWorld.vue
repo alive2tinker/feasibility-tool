@@ -1816,7 +1816,7 @@ export default {
       get() {
         const sum = (a, b) => parseInt(a) + parseInt(b.cost);
         let value = this.products.reduce(sum, 0)
-        return 0;
+        return value;
       },
     },
     PRA: {
